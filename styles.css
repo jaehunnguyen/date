@@ -36,6 +36,20 @@ body {
     }
 }
 
+/* Clickable GIF styling */
+.clickable-gif {
+    max-width: 80%; /* Adjusts the size of the GIF */
+    height: auto;
+    border-radius: 10px; /* Optional: adds rounded corners */
+    cursor: pointer; /* Changes cursor to indicate clickability */
+    transition: transform 0.2s; /* Optional: adds a hover effect */
+    margin-top: 20px; /* Adds space above the GIF */
+}
+
+.clickable-gif:hover {
+    transform: scale(1.05); /* Slightly enlarges the GIF on hover */
+}
+
 /* Big button styling */
 .big-button {
     display: inline-block;
