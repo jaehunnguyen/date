@@ -40,11 +40,13 @@ h1 {
 
 /* Thumbnail styling */
 .thumbnail {
-    width: 200px; /* Set a fixed width */
-    height: 300px; /* Set a fixed height */
-    object-fit: cover; /* Ensures images cover the area without distortion */
+    width: 200px; /* Fixed width */
+    height: 300px; /* Fixed height */
+    object-fit: cover; /* Ensure images cover the area without distortion */
     border-radius: 10px; /* Optional: rounded corners */
     margin-bottom: 10px; /* Space below the thumbnail */
+}
+
 }
 
 /* Button styling for picking movies */
