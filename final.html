@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>This took me 2 hours</title>
+    <title>Final Page</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -12,15 +12,23 @@
             background-repeat: no-repeat; /* Prevent tiling */
             text-align: center; /* Center the content */
             font-family: Arial, sans-serif; /* Font for the text */
-            color: white; /* Text color */
+            height: 100vh; /* Full height */
+            display: flex; /* Use flexbox for centering */
+            flex-direction: column; /* Stack items vertically */
+            justify-content: center; /* Center vertically */
+            align-items: center; /* Center horizontally */
+            margin: 0; /* Remove default margin */
+            overflow: hidden; /* Hide overflow for bouncing effect */
         }
 
         .throbbing-text {
-            font-size: 50px; /* Large font size */
-            animation: throbbing 1s infinite; /* Throbbing animation */
-            background: linear-gradient(90deg, pink, white);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 80px; /* Larger font size */
+            animation: throbbing 1s infinite, rainbow 5s infinite, bounce 2s infinite; /* Throbbing, rainbow, and bounce animations */
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet); /* Rainbow gradient */
+            background-size: 300%; /* Increase size for animation effect */
+            -webkit-background-clip: text; /* Clip background to text */
+            -webkit-text-fill-color: transparent; /* Make text transparent for gradient */
+            position: relative; /* Set position relative for bouncing */
         }
 
         @keyframes throbbing {
@@ -29,14 +37,39 @@
             100% { transform: scale(1); }
         }
 
+        @keyframes rainbow {
+            0% { background-position: 0%; }
+            100% { background-position: 100%; }
+        }
+
+        @keyframes bounce {
+            0%, 100% { top: 0; }
+            25% { top: calc(100vh - 100px); } /* Move down to the bottom of the viewport */
+            50% { top: 0; } /* Move back up */
+            75% { top: calc(100vh - 100px); } /* Move down again */
+        }
+
+        .gif-container {
+            margin: 20px 0; /* Space around the GIF */
+        }
+
         .picks {
             margin-top: 20px; /* Space above the picks */
             font-size: 24px; /* Moderate font size for picks */
+            color: white; /* Text color for picks */
+        }
+
+        img {
+            max-width: 300px; /* Limit the width of the GIF */
+            height: auto; /* Maintain aspect ratio */
         }
     </style>
 </head>
 <body>
     <h1 class="throbbing-text">I love you</h1> <!-- Throbbing text -->
+    <div class="gif-container">
+        <img src="images/cutegif.gif" alt="Cute GIF"> <!-- Add your GIF here -->
+    </div>
     <div class="picks">
         <p><strong>Selected Movie:</strong> <span id="selectedMovie">None</span></p>
         <p><strong>Selected Game:</strong> <span id="selectedGame">None</span></p>
