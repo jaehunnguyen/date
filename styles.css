@@ -64,3 +64,11 @@ body {
     background-color: #f0f0f0; /* Light gray on hover */
     transform: scale(1.05); /* Slightly enlarges the button on hover */
 }
+/* Thumbnail styling */
+.thumbnail {
+    width: 150px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional: rounded corners */
+    margin-bottom: 10px; /* Space below the thumbnail */
+}
+
