@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: white; /* Background color */
+            text-align: center; /* Center the content */
+            font-family: Arial, sans-serif; /* Font for the text */
+        }
+
+        .throbbing-text {
+            font-size: 50px; /* Large font size */
+            animation: throbbing 1s infinite; /* Throbbing animation */
+            background: linear-gradient(90deg, pink, white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes throbbing {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .picks {
+            margin-top: 20px; /* Space above the picks */
+            font-size: 24px; /* Moderate font size for picks */
+        }
+    </style>
+</head>
+<body>
+    <h1 class="throbbing-text">I love you</h1> <!-- Throbbing text -->
+    <div class="picks">
+        <p><strong>Selected Movie:</strong> <span id="selectedMovie">None</span></p>
+        <p><strong>Selected Game:</strong> <span id="selectedGame">None</span></p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const selectedMovie = localStorage.getItem('selectedMovie');
+            const selectedGame = localStorage.getItem('selectedGame'); // Assuming you'll set this in the games page
+            document.getElementById('selectedMovie').textContent = selectedMovie ? selectedMovie : 'None';
+            document.getElementById('selectedGame').textContent = selectedGame ? selectedGame : 'None';
+        });
+    </script>
+</body>
+</html>
