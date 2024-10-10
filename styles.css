@@ -45,3 +45,22 @@ body {
 .clickable-gif:hover {
     transform: scale(1.05); /* Slightly enlarges the GIF on hover */
 }
+/* Button styling for picking movies */
+.white-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black; /* Text color */
+    background-color: white; /* Button color */
+    border: 2px solid black; /* Border color */
+    border-radius: 10px; /* Rounded corners */
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transition effects */
+    margin: 10px 0; /* Margin between buttons */
+}
+
+.white-button:hover {
+    background-color: #f0f0f0; /* Light gray on hover */
+    transform: scale(1.05); /* Slightly enlarges the button on hover */
+}
