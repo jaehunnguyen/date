@@ -97,7 +97,7 @@
         <button class="button" id="noButton">Fuck no</button>
     </div>
 
-    <script>
+   <script>
     document.addEventListener("DOMContentLoaded", function() {
         const selectedMovie = localStorage.getItem('selectedMovie');
         const selectedGame = localStorage.getItem('selectedGame');
@@ -134,13 +134,15 @@
     const yesButton = document.getElementById('yesButton');
 
     yesButton.addEventListener('mouseover', function() {
-        const offsetX = Math.random() * 150 + 50; // Random X offset
-        const offsetY = Math.random() * 150 + 50; // Random Y offset
-        yesButton.style.transform = `translate(${offsetX}px, ${offsetY}px)`; // Move the button
-    });
+        // Move the button to a random position
+        const buttonRect = yesButton.getBoundingClientRect(); // Get the button's current position
+        const randomX = Math.random() * (window.innerWidth - buttonRect.width);
+        const randomY = Math.random() * (window.innerHeight - buttonRect.height);
 
-    yesButton.addEventListener('mouseout', function() {
-        yesButton.style.transform = 'translate(0, 0)'; // Reset position
+        // Set new position
+        yesButton.style.position = 'absolute'; // Position should be absolute
+        yesButton.style.left = randomX + 'px';
+        yesButton.style.top = randomY + 'px';
     });
 
     // Redirect to new page when "Yes" is clicked
@@ -148,3 +150,4 @@
         window.location.href = 'yes-page.html'; // Redirect to your new page
     });
 </script>
+
