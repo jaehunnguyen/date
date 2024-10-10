@@ -39,6 +39,8 @@
             const currentPicksElement = document.querySelector('.current-picks');
             if (selectedMovie) {
                 currentPicksElement.textContent = `Current Picks: ${selectedMovie}`;
+            } else {
+                currentPicksElement.textContent = "Current Picks: None"; // Default text if no movie is selected
             }
         });
     </script>
