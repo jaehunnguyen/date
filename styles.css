@@ -3,13 +3,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif; /* Change font as needed */
-    background-image: url('images/pastelpink.jpg'); /* Use your pastel pink image */
-    background-size: cover; /* Ensure the background covers the entire body */
-    background-repeat: no-repeat; /* Prevent the background from repeating */
-    background-position: center; /* Center the background image */
-    color: #333; /* Change text color for better contrast if needed */
-}
-
+    background-color: #f9f9f9; /* Light gray background for contrast */
 }
 
 /* Centering the container */
@@ -41,4 +35,34 @@ h1 {
     border: 1px solid #ccc; /* Border around movie cards */
     border-radius: 10px; /* Rounded corners */
     background-color: white; /* Background color for movie cards */
-    box
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Thumbnail styling */
+.thumbnail {
+    width: 200px; /* Set a fixed width */
+    height: 300px; /* Set a fixed height */
+    object-fit: cover; /* Ensures images cover the area without distortion */
+    border-radius: 10px; /* Optional: rounded corners */
+    margin-bottom: 10px; /* Space below the thumbnail */
+}
+
+/* Button styling for picking movies */
+.white-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black; /* Text color */
+    background-color: white; /* Button color */
+    border: 2px solid black; /* Border color */
+    border-radius: 10px; /* Rounded corners */
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transition effects */
+    margin: 10px 0; /* Margin between buttons */
+}
+
+.white-button:hover {
+    background-color: #f0f0f0; /* Light gray on hover */
+    transform: scale(1.05); /* Slightly enlarges the button on hover */
+}
