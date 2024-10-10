@@ -3,7 +3,13 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif; /* Change font as needed */
-    background-color: #f9f9f9; /* Light gray background for contrast */
+    background-image: url('images/pastelpink.jpg'); /* Use your pastel pink image */
+    background-size: cover; /* Ensure the background covers the entire body */
+    background-repeat: no-repeat; /* Prevent the background from repeating */
+    background-position: center; /* Center the background image */
+    color: #333; /* Change text color for better contrast if needed */
+}
+
 }
 
 /* Centering the container */
