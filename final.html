@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>my fingers hurt</title>
+    <title>Final Page</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -61,23 +61,14 @@
             border: none; /* Remove default border */
             border-radius: 5px; /* Rounded corners */
             background-color: white; /* Button color */
-            transition: transform 0.2s; /* Smooth transform */
-            position: relative; /* Position for animation */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-        }
-
-        .yes-button {
-            animation: throbbing 1.5s infinite; /* Throbbing effect */
-        }
-
-        @keyframes throbbing {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
         }
 
         .button:hover {
             background-color: deepskyblue; /* Color on hover */
+        }
+
+        .yes-button {
+            position: relative; /* Relative positioning for moving away effect */
         }
     </style>
 </head>
@@ -92,62 +83,54 @@
     </div>
     
     <div class="love-question">
-        <p>did you appreciate the effort</p>
+        <p>do you appreciate the effort</p>
         <button class="button yes-button" id="yesButton">Yes</button>
-        <button class="button" id="noButton">Fuck no</button>
+        <button class="button">No</button>
     </div>
 
-   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const selectedMovie = localStorage.getItem('selectedMovie');
-        const selectedGame = localStorage.getItem('selectedGame');
-        document.getElementById('selectedMovie').textContent = selectedMovie ? selectedMovie : 'None';
-        document.getElementById('selectedGame').textContent = selectedGame ? selectedGame : 'None';
-    });
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const selectedMovie = localStorage.getItem('selectedMovie');
+            const selectedGame = localStorage.getItem('selectedGame'); // Assuming you'll set this in the games page
+            document.getElementById('selectedMovie').textContent = selectedMovie ? selectedMovie : 'None';
+            document.getElementById('selectedGame').textContent = selectedGame ? selectedGame : 'None';
+        });
 
-    const bouncingText = document.getElementById('bouncingText');
-    let posX = Math.random() * (window.innerWidth - 300);
-    let posY = Math.random() * (window.innerHeight - 100);
-    let deltaX = 2;
-    let deltaY = 2;
+        const bouncingText = document.getElementById('bouncingText');
+        let posX = Math.random() * (window.innerWidth - 300); // Initial horizontal position
+        let posY = Math.random() * (window.innerHeight - 100); // Initial vertical position
+        let deltaX = 2; // Change in X direction
+        let deltaY = 2; // Change in Y direction
 
-    function moveText() {
-        posX += deltaX;
-        posY += deltaY;
+        function moveText() {
+            posX += deltaX;
+            posY += deltaY;
 
-        if (posX + bouncingText.clientWidth > window.innerWidth || posX < 0) {
-            deltaX *= -1;
+            // Bounce off the edges
+            if (posX + bouncingText.clientWidth > window.innerWidth || posX < 0) {
+                deltaX *= -1; // Reverse X direction
+            }
+            if (posY + bouncingText.clientHeight > window.innerHeight || posY < 0) {
+                deltaY *= -1; // Reverse Y direction
+            }
+
+            // Update position
+            bouncingText.style.left = posX + 'px';
+            bouncingText.style.top = posY + 'px';
+
+            requestAnimationFrame(moveText); // Continue moving
         }
-        if (posY + bouncingText.clientHeight > window.innerHeight || posY < 0) {
-            deltaY *= -1;
-        }
 
-        bouncingText.style.left = posX + 'px';
-        bouncingText.style.top = posY + 'px';
+        moveText(); // Start the movement
 
-        requestAnimationFrame(moveText);
-    }
+        // Move the Yes button away from the cursor
+        const yesButton = document.getElementById('yesButton');
 
-    moveText();
-
-    // Move the Yes button away from the cursor
-    const yesButton = document.getElementById('yesButton');
-
-    yesButton.addEventListener('mouseover', function() {
-        // Move the button to a random position
-        const buttonRect = yesButton.getBoundingClientRect(); // Get the button's current position
-        const randomX = Math.random() * (window.innerWidth - buttonRect.width);
-        const randomY = Math.random() * (window.innerHeight - buttonRect.height);
-
-        // Set new position
-        yesButton.style.position = 'absolute'; // Position should be absolute
-        yesButton.style.left = randomX + 'px';
-        yesButton.style.top = randomY + 'px';
-    });
-
-    // Redirect to new page when "Yes" is clicked
-    yesButton.addEventListener('click', function() {
-        window.location.href = 'yes-page.html'; // Redirect to your new page
-    });
-</script>
-
+        yesButton.addEventListener('mouseover', function() {
+            const offsetX = Math.random() * 100 + 50; // Random offset
+            const offsetY = Math.random() * 100 + 50; // Random offset
+            yesButton.style.transform = `translate(${offsetX}px, ${offsetY}px)`; // Move the button
+        });
+    </script>
+</body>
+</html>
