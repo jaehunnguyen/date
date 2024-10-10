@@ -61,6 +61,7 @@
             border: none; /* Remove default border */
             border-radius: 5px; /* Rounded corners */
             background-color: white; /* Button color */
+            transition: background-color 0.3s; /* Transition effect for hover */
         }
 
         .button:hover {
@@ -83,7 +84,7 @@
     </div>
     
     <div class="love-question">
-        <p>do you appreciate the effort</p>
+        <p>do you appreciate the effort?</p>
         <button class="button yes-button" id="yesButton">Yes</button>
         <button class="button">No</button>
     </div>
@@ -129,7 +130,14 @@
         yesButton.addEventListener('mouseover', function() {
             const offsetX = Math.random() * 100 + 50; // Random offset
             const offsetY = Math.random() * 100 + 50; // Random offset
-            yesButton.style.transform = `translate(${offsetX}px, ${offsetY}px)`; // Move the button
+            yesButton.style.position = 'absolute'; // Ensure button can move freely
+            yesButton.style.left = `${Math.min(window.innerWidth - yesButton.offsetWidth, Math.random() * (window.innerWidth - offsetX))}px`; // Random left position
+            yesButton.style.top = `${Math.min(window.innerHeight - yesButton.offsetHeight, Math.random() * (window.innerHeight - offsetY))}px`; // Random top position
+        });
+
+        // Redirect to new page when "Yes" is clicked
+        yesButton.addEventListener('click', function() {
+            window.location.href = 'yes-page.html'; // Redirect to your new page
         });
     </script>
 </body>
