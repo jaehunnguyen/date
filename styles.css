@@ -1,23 +1,57 @@
-/* Style for the container */
+/* Body and background */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url('images/pastelpink.jpg'); /* Add your JPEG image here */
+    background-size: cover; /* Ensures the background covers the entire screen */
+    background-position: center; /* Centers the background image */
+}
+
+/* Centering the container */
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 100%;
     text-align: center;
-    background-color: #f0f0f0;
 }
 
-/* Clickable GIF styling */
-.clickable-gif {
-    max-width: 80%; /* Adjusts the size of the GIF */
-    height: auto;
-    border-radius: 10px; /* Optional: adds rounded corners */
-    cursor: pointer; /* Changes cursor to indicate clickability */
-    transition: transform 0.2s; /* Optional: adds a hover effect */
+/* Throbbing text effect */
+.throbbing-text {
+    font-size: 60px; /* Adjust size as needed */
+    color: white; /* Text color */
+    font-family: 'Arial', sans-serif; /* Change to a cute exciting font, if you have one */
+    animation: throb 1s infinite alternate; /* Apply throbbing effect */
 }
 
-.clickable-gif:hover {
-    transform: scale(1.05); /* Slightly enlarges the GIF on hover */
+/* Keyframes for throbbing effect */
+@keyframes throb {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+/* Big button styling */
+.big-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    background-color: #28a745; /* Button color */
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Add transition for hover effects */
+    margin-top: 20px;
+}
+
+.big-button:hover {
+    background-color: #218838; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly enlarges the button on hover */
 }
