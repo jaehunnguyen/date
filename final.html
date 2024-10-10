@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Final Page</title>
+    <title>my fingers hurt</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -60,20 +60,29 @@
             cursor: pointer; /* Pointer cursor for buttons */
             border: none; /* Remove default border */
             border-radius: 5px; /* Rounded corners */
-            background-color: lightblue; /* Button color */
+            background-color: white; /* Button color */
+            transition: transform 0.2s; /* Smooth transform */
+            position: relative; /* Position for animation */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+        }
+
+        .yes-button {
+            animation: throbbing 1.5s infinite; /* Throbbing effect */
+        }
+
+        @keyframes throbbing {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
 
         .button:hover {
             background-color: deepskyblue; /* Color on hover */
         }
-
-        .yes-button {
-            position: relative; /* Relative positioning for moving away effect */
-        }
     </style>
 </head>
 <body>
-    <h1 class="throbbing-text" id="bouncingText">i love you</h1> <!-- Throbbing text -->
+    <h1 class="throbbing-text" id="bouncingText">I love you</h1> <!-- Throbbing text -->
     <div class="gif-container">
         <img src="images/cutegif.gif" alt="Cute GIF"> <!-- Add your GIF here -->
     </div>
@@ -83,9 +92,9 @@
     </div>
     
     <div class="love-question">
-        <p>do you love me this took two hours</p>
+        <p>did you appreciate the effort</p>
         <button class="button yes-button" id="yesButton">Yes</button>
-        <button class="button">Fuck no</button>
+        <button class="button" id="noButton">Fuck no</button>
     </div>
 
     <script>
@@ -127,9 +136,14 @@
         const yesButton = document.getElementById('yesButton');
 
         yesButton.addEventListener('mouseover', function() {
-            const offsetX = Math.random() * 100 + 50; // Random offset
-            const offsetY = Math.random() * 100 + 50; // Random offset
+            const offsetX = Math.random() * 150 + 100; // Increase detection area
+            const offsetY = Math.random() * 150 + 100; // Increase detection area
             yesButton.style.transform = `translate(${offsetX}px, ${offsetY}px)`; // Move the button
+        });
+
+        // Redirect to new page when "Yes" is clicked
+        yesButton.addEventListener('click', function() {
+            window.location.href = 'yes-page.html'; // Redirect to your new page
         });
     </script>
 </body>
