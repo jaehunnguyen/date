@@ -13,40 +13,23 @@
             text-align: center; /* Center the content */
             font-family: Arial, sans-serif; /* Font for the text */
             height: 100vh; /* Full height */
-            display: flex; /* Use flexbox for centering */
-            flex-direction: column; /* Stack items vertically */
-            justify-content: center; /* Center vertically */
-            align-items: center; /* Center horizontally */
             margin: 0; /* Remove default margin */
             overflow: hidden; /* Hide overflow for bouncing effect */
         }
 
         .throbbing-text {
             font-size: 80px; /* Larger font size */
-            animation: throbbing 1s infinite, rainbow 5s infinite, bounce 2s infinite; /* Throbbing, rainbow, and bounce animations */
+            animation: rainbow 5s infinite; /* Only rainbow animation */
             background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet); /* Rainbow gradient */
             background-size: 300%; /* Increase size for animation effect */
             -webkit-background-clip: text; /* Clip background to text */
             -webkit-text-fill-color: transparent; /* Make text transparent for gradient */
-            position: relative; /* Set position relative for bouncing */
-        }
-
-        @keyframes throbbing {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+            position: absolute; /* Use absolute positioning for free movement */
         }
 
         @keyframes rainbow {
             0% { background-position: 0%; }
             100% { background-position: 100%; }
-        }
-
-        @keyframes bounce {
-            0%, 100% { top: 0; }
-            25% { top: calc(100vh - 100px); } /* Move down to the bottom of the viewport */
-            50% { top: 0; } /* Move back up */
-            75% { top: calc(100vh - 100px); } /* Move down again */
         }
 
         .gif-container {
@@ -66,7 +49,7 @@
     </style>
 </head>
 <body>
-    <h1 class="throbbing-text">I love you</h1> <!-- Throbbing text -->
+    <h1 class="throbbing-text" id="bouncingText">I love you</h1> <!-- Throbbing text -->
     <div class="gif-container">
         <img src="images/cutegif.gif" alt="Cute GIF"> <!-- Add your GIF here -->
     </div>
@@ -82,6 +65,33 @@
             document.getElementById('selectedMovie').textContent = selectedMovie ? selectedMovie : 'None';
             document.getElementById('selectedGame').textContent = selectedGame ? selectedGame : 'None';
         });
+
+        const bouncingText = document.getElementById('bouncingText');
+        let posX = Math.random() * (window.innerWidth - 300); // Initial horizontal position
+        let posY = Math.random() * (window.innerHeight - 100); // Initial vertical position
+        let deltaX = 2; // Change in X direction
+        let deltaY = 2; // Change in Y direction
+
+        function moveText() {
+            posX += deltaX;
+            posY += deltaY;
+
+            // Bounce off the edges
+            if (posX + bouncingText.clientWidth > window.innerWidth || posX < 0) {
+                deltaX *= -1; // Reverse X direction
+            }
+            if (posY + bouncingText.clientHeight > window.innerHeight || posY < 0) {
+                deltaY *= -1; // Reverse Y direction
+            }
+
+            // Update position
+            bouncingText.style.left = posX + 'px';
+            bouncingText.style.top = posY + 'px';
+
+            requestAnimationFrame(moveText); // Continue moving
+        }
+
+        moveText(); // Start the movement
     </script>
 </body>
 </html>
