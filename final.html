@@ -98,53 +98,53 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const selectedMovie = localStorage.getItem('selectedMovie');
-            const selectedGame = localStorage.getItem('selectedGame'); // Assuming you'll set this in the games page
-            document.getElementById('selectedMovie').textContent = selectedMovie ? selectedMovie : 'None';
-            document.getElementById('selectedGame').textContent = selectedGame ? selectedGame : 'None';
-        });
+    document.addEventListener("DOMContentLoaded", function() {
+        const selectedMovie = localStorage.getItem('selectedMovie');
+        const selectedGame = localStorage.getItem('selectedGame');
+        document.getElementById('selectedMovie').textContent = selectedMovie ? selectedMovie : 'None';
+        document.getElementById('selectedGame').textContent = selectedGame ? selectedGame : 'None';
+    });
 
-        const bouncingText = document.getElementById('bouncingText');
-        let posX = Math.random() * (window.innerWidth - 300); // Initial horizontal position
-        let posY = Math.random() * (window.innerHeight - 100); // Initial vertical position
-        let deltaX = 2; // Change in X direction
-        let deltaY = 2; // Change in Y direction
+    const bouncingText = document.getElementById('bouncingText');
+    let posX = Math.random() * (window.innerWidth - 300);
+    let posY = Math.random() * (window.innerHeight - 100);
+    let deltaX = 2;
+    let deltaY = 2;
 
-        function moveText() {
-            posX += deltaX;
-            posY += deltaY;
+    function moveText() {
+        posX += deltaX;
+        posY += deltaY;
 
-            // Bounce off the edges
-            if (posX + bouncingText.clientWidth > window.innerWidth || posX < 0) {
-                deltaX *= -1; // Reverse X direction
-            }
-            if (posY + bouncingText.clientHeight > window.innerHeight || posY < 0) {
-                deltaY *= -1; // Reverse Y direction
-            }
-
-            // Update position
-            bouncingText.style.left = posX + 'px';
-            bouncingText.style.top = posY + 'px';
-
-            requestAnimationFrame(moveText); // Continue moving
+        if (posX + bouncingText.clientWidth > window.innerWidth || posX < 0) {
+            deltaX *= -1;
+        }
+        if (posY + bouncingText.clientHeight > window.innerHeight || posY < 0) {
+            deltaY *= -1;
         }
 
-        moveText(); // Start the movement
+        bouncingText.style.left = posX + 'px';
+        bouncingText.style.top = posY + 'px';
 
-        // Move the Yes button away from the cursor
-        const yesButton = document.getElementById('yesButton');
+        requestAnimationFrame(moveText);
+    }
 
-        yesButton.addEventListener('mouseover', function() {
-            const offsetX = Math.random() * 150 + 100; // Increase detection area
-            const offsetY = Math.random() * 150 + 100; // Increase detection area
-            yesButton.style.transform = `translate(${offsetX}px, ${offsetY}px)`; // Move the button
-        });
+    moveText();
 
-        // Redirect to new page when "Yes" is clicked
-        yesButton.addEventListener('click', function() {
-            window.location.href = 'yes-page.html'; // Redirect to your new page
-        });
-    </script>
-</body>
-</html>
+    // Move the Yes button away from the cursor
+    const yesButton = document.getElementById('yesButton');
+
+    yesButton.addEventListener('mouseover', function() {
+        const offsetX = Math.random() * 150 + 50; // Random X offset
+        const offsetY = Math.random() * 150 + 50; // Random Y offset
+        yesButton.style.transform = `translate(${offsetX}px, ${offsetY}px)`; // Move the button
+    });
+
+    yesButton.addEventListener('mouseout', function() {
+        yesButton.style.transform = 'translate(0, 0)'; // Reset position
+    });
+
+    // Redirect to new page when "Yes" is clicked
+    yesButton.addEventListener('click', function() {
+        window.location.href = 'yes-page.html'; // Redirect to your new page
+    });
+</script>
