@@ -49,23 +49,3 @@ body {
 .clickable-gif:hover {
     transform: scale(1.05); /* Slightly enlarges the GIF on hover */
 }
-
-/* Big button styling */
-.big-button {
-    display: inline-block;
-    padding: 15px 30px;
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    background-color: #28a745; /* Button color */
-    border: none;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Add transition for hover effects */
-    margin-top: 20px;
-}
-
-.big-button:hover {
-    background-color: #218838; /* Darker shade on hover */
-    transform: scale(1.05); /* Slightly enlarges the button on hover */
-}
