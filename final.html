@@ -46,16 +46,46 @@
             max-width: 300px; /* Limit the width of the GIF */
             height: auto; /* Maintain aspect ratio */
         }
+
+        .love-question {
+            margin-top: 20px; /* Space above the question */
+            font-size: 24px; /* Font size for the question */
+            color: white; /* Text color for the question */
+        }
+
+        .button {
+            padding: 10px 20px; /* Padding for buttons */
+            font-size: 20px; /* Font size for buttons */
+            margin: 10px; /* Margin for spacing */
+            cursor: pointer; /* Pointer cursor for buttons */
+            border: none; /* Remove default border */
+            border-radius: 5px; /* Rounded corners */
+            background-color: lightblue; /* Button color */
+        }
+
+        .button:hover {
+            background-color: deepskyblue; /* Color on hover */
+        }
+
+        .yes-button {
+            position: relative; /* Relative positioning for moving away effect */
+        }
     </style>
 </head>
 <body>
-    <h1 class="throbbing-text" id="bouncingText">I love you</h1> <!-- Throbbing text -->
+    <h1 class="throbbing-text" id="bouncingText">i love you</h1> <!-- Throbbing text -->
     <div class="gif-container">
         <img src="images/cutegif.gif" alt="Cute GIF"> <!-- Add your GIF here -->
     </div>
     <div class="picks">
         <p><strong>Selected Movie:</strong> <span id="selectedMovie">None</span></p>
         <p><strong>Selected Game:</strong> <span id="selectedGame">None</span></p>
+    </div>
+    
+    <div class="love-question">
+        <p>do you love me this took two hours</p>
+        <button class="button yes-button" id="yesButton">Yes</button>
+        <button class="button">Fuck no</button>
     </div>
 
     <script>
@@ -92,6 +122,15 @@
         }
 
         moveText(); // Start the movement
+
+        // Move the Yes button away from the cursor
+        const yesButton = document.getElementById('yesButton');
+
+        yesButton.addEventListener('mouseover', function() {
+            const offsetX = Math.random() * 100 + 50; // Random offset
+            const offsetY = Math.random() * 100 + 50; // Random offset
+            yesButton.style.transform = `translate(${offsetX}px, ${offsetY}px)`; // Move the button
+        });
     </script>
 </body>
 </html>
