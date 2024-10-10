@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Options</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pick a Game to Play</h1>
+
+        <!-- Display the selected movie and current picks -->
+        <p><strong>Current Picks:</strong> Movie: <span id="selected-movie">None</span></p>
+
+        <!-- Game 1 -->
+        <div class="game">
+            <img src="path/to/game1_thumbnail.jpg" alt="Game 1" class="thumbnail">
+            <h2>Game 1</h2>
+            <p>An exciting adventure game.</p>
+            <a href="#" class="big-button">Pick Game 1</a>
+        </div>
+
+        <!-- Game 2 -->
+        <div class="game">
+            <img src="path/to/game2_thumbnail.jpg" alt="Game 2" class="thumbnail">
+            <h2>Game 2</h2>
+            <p>A challenging puzzle game.</p>
+            <a href="#" class="big-button">Pick Game 2</a>
+        </div>
+
+        <!-- Game 3 -->
+        <div class="game">
+            <img src="path/to/game3_thumbnail.jpg" alt="Game 3" class="thumbnail">
+            <h2>Game 3</h2>
+            <p>A fun party game.</p>
+            <a href="#" class="big-button">Pick Game 3</a>
+        </div>
+    </div>
+
+    <!-- JavaScript to handle movie selection -->
+    <script>
+        // Get the selected movie from the URL query string
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedMovie = urlParams.get('movie');
+
+        // Display the selected movie in the "Current Picks" section
+        document.getElementById('selected-movie').textContent = selectedMovie || 'None';
+    </script>
+</body>
+</html>
