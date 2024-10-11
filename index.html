@@ -4,15 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: white; /* Set background to white */
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @keyframes fadeAndMove {
+            0% {
+                opacity: 0;
+                transform: scale(0.5) translate(0, 0); /* Start small */
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1.5) translate(50vw, 50vh); /* Grow and move */
+            }
+        }
+
+        @keyframes colorFlow {
+            0% { color: pink; }
+            100% { color: purple; }
+        }
+
+        .beautiful-text {
+            position: absolute;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-weight: bold;
+            opacity: 0;
+            animation: fadeAndMove 5s ease-in-out infinite, colorFlow 5s ease-in-out infinite;
+            pointer-events: none; /* Ignore mouse events */
+            white-space: nowrap; /* Prevent wrapping */
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="throbbing-text">Hi Beautiful</h1>
-        <!-- Include the clickable GIF -->
-        <a href="movies.html">
-            <img src="images/click me.gif" alt="Click to Continue" class="clickable-gif">
-        </a>
-    </div>
-</body>
-</html>
+
+<script>
+    // Function to generate random "Hi Beautiful
