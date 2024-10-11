@@ -65,6 +65,39 @@
             width: 200px; /* Adjust size of the GIF */
             height: auto;
         }
+
+        /* Throbbing Click Me Button */
+        .click-me-btn {
+            position: absolute;
+            top: 80%; /* Position button below the center */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px 40px;
+            background-color: white;
+            color: black;
+            border: none;
+            font-size: 24px;
+            font-family: 'Arial', sans-serif;
+            cursor: pointer;
+            border-radius: 10px;
+            animation: throb 1s infinite;
+        }
+
+        @keyframes throb {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2); /* Enlarge slightly */
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .click-me-btn:hover {
+            background-color: lightpink;
+        }
     </style>
 </head>
 <body>
@@ -73,6 +106,9 @@
 <div class="gif-container">
     <img src="images/cutegif.gif" alt="Cute GIF">
 </div>
+
+<!-- Click Me Button -->
+<button class="click-me-btn" onclick="location.href='movies.html'">Click Me</button>
 
 <script>
     // Function to generate random "Hi Beautiful" texts
