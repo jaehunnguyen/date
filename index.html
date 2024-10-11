@@ -32,6 +32,11 @@
             100% { color: purple; }
         }
 
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         .beautiful-text {
             position: absolute;
             font-family: 'Comic Sans MS', cursive, sans-serif;
@@ -41,9 +46,63 @@
             pointer-events: none; /* Ignore mouse events */
             white-space: nowrap; /* Prevent wrapping */
         }
+
+        /* Spinning class for random texts */
+        .spin {
+            animation: fadeAndMove 5s ease-in-out infinite, colorFlow 5s ease-in-out infinite, spin 5s infinite linear;
+        }
+
+        /* Center GIF styling */
+        .gif-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10; /* Ensure it's on top of everything */
+        }
+
+        .gif-container img {
+            width: 200px; /* Adjust size of the GIF */
+            height: auto;
+        }
     </style>
 </head>
 <body>
 
+<!-- GIF in the center of the page -->
+<div class="gif-container">
+    <img src="images/cutegif.gif" alt="Cute GIF">
+</div>
+
 <script>
-    // Function to generate random "Hi Beautiful
+    // Function to generate random "Hi Beautiful" texts
+    function createBeautifulText() {
+        const text = document.createElement('div');
+        text.classList.add('beautiful-text');
+        text.textContent = 'Hi Beautiful';
+
+        // Randomly add the spinning effect
+        if (Math.random() < 0.5) {
+            text.classList.add('spin');
+        }
+
+        // Set random size and position
+        const size = Math.random() * 50 + 20; // Random size between 20px and 70px
+        text.style.fontSize = size + 'px';
+        text.style.top = Math.random() * window.innerHeight + 'px';
+        text.style.left = Math.random() * window.innerWidth + 'px';
+
+        document.body.appendChild(text);
+
+        // Remove element after animation completes
+        setTimeout(() => {
+            text.remove();
+        }, 5000);
+    }
+
+    // Generate a new text every 500ms
+    setInterval(createBeautifulText, 500);
+</script>
+
+</body>
+</html>
